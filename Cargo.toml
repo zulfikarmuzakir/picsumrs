@@ -1,0 +1,33 @@
+[package]
+name = "picsumrs"
+version = "0.1.0"
+edition = "2021"
+authors = ["Zulfikharali Muzakir <zulfikharali@proton.me>"]
+description = "A CLI tool for downloading images from Picsum Photos"
+license = "MIT"
+repository = "https://github.com/zulfikarmuzakir/picsumrs"
+keywords = ["cli", "downloader", "images", "picsum", "photos"]
+categories = ["command-line-utilities"]
+
+[dependencies]
+reqwest = { version = "0.12.19", features = ["json", "stream"] }
+tokio = { version = "1.45.1", features = ["full"] }
+bytes = "1"
+clap = { version = "4.5.39", features = ["derive", "color"] }
+serde = { version = "1.0.219", features = ["derive"] }
+indicatif = { version = "0.17.11", features = ["tokio"] }
+rand = "0.9.1"
+
+[dev-dependencies]
+tempfile = "3.20.0"
+tokio-test = "0.4.4"
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[profile.dev]
+debug = true
+opt-level = 0
