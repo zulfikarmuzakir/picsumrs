@@ -30,25 +30,51 @@ pub enum Commands {
 
         #[arg(short, long)]
         grayscale: bool,
-        
+
         /// Apply blur effect (1-10)
         #[arg(short, long)]
         blur: Option<u32>,
-        
+
         /// JPEG quality (1-100)
         #[arg(short = 'q', long)]
         quality: Option<u32>,
-        
+
         /// Number of concurrent downloads
         #[arg(short = 'j', long, default_value = "4")]
         concurrent: usize,
-        
+
         /// Custom filename prefix
         #[arg(short = 'p', long, default_value = "picsum")]
-        prefix: String, 
-        
+        prefix: String,
+
         /// Image format (jpg, png, webp)
         #[arg(short, long, default_value = "jpg")]
         format: String,
-    }
+    },
+
+    // Get information about a specific image
+    Info {
+        // Image ID
+        id: u32,
+    },
+
+    // List Available Image
+    List {
+        // Page Number
+        #[arg(short, long, default_value = "1")]
+        page: u32,
+
+        #[arg(short, long, default_value = "10")]
+        limit: u32,
+    },
+
+    // Search images by author
+    Search {
+        // Author name to search for
+        author: String,
+
+        // Maximum results
+        #[arg(short, long, default_value = "10")]
+        limit: u32,
+    },
 }
