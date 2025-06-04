@@ -15,6 +15,7 @@ pub struct ImageInfo {
     pub download_url: String,
 }
 
+#[derive(Debug, Clone)]
 pub struct PicsumClient {
     client: Client,
     base_url: String,

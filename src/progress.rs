@@ -1,6 +1,8 @@
 use indicatif::{ProgressBar, ProgressStyle};
 use std::time::Duration;
 
+
+#[derive(Debug, Clone)]
 pub struct ProgressTracker {
     bar: ProgressBar,
     start_time: std::time::Instant,
