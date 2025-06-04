@@ -188,7 +188,7 @@ impl Downloader {
     }
 
     fn print_download_info(&self, config: &crate::config::DownloadConfig) {
-        println!("🖼️  Picsum Image Downloader v2.0");
+        println!("🖼️  Picsum Image Downloader v0.1.0");
         println!("┌─────────────────────────────────────");
         println!("│ 📁 Output: {}", config.output_dir.display());
         println!(
